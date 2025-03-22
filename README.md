@@ -1,1 +1,3 @@
 # machine-learning
+Conducted exploratory data analysis on the College dataset using statistical summaries and visualizations to identify key patterns. Developed multiple regression models on the Carseats dataset to predict sales and assess the impact of key variables. Applied logistic regression and k-nearest neighbors (KNN) to predict weekly market direction based on financial data. Evaluated model performance using metrics like accuracy, precision, recall, and R² to refine predictions. Leveraged statistical learning techniques to derive insights and support data-driven decision-making.
+Tools Used: R Progrmming (ggplot, dplyr)                   
