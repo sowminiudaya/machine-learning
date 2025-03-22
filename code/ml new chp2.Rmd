@@ -1,0 +1,86 @@
+---
+title: "Meachine learning Project"
+author: "Sowmini u"
+date: "02/10/2024"
+output: html_document
+---
+#chapter-2 (8)
+```{r}
+?College
+```
+```{r}
+fix(College)
+```
+```{r}
+summary(College)
+```
+```{r}
+pairs(College ,1:10)
+```
+```{r}
+attach(College)
+```
+```{r}
+plot(Outstate, Private)
+```
+```{r}
+Elite=rep("No",nrow(College))
+Elite[College$Top25perc>50]="Yes"
+Elite=as.factor(Elite)
+college=data.frame(College,Elite)
+```
+```{r}
+summary(college)
+```
+```{r}
+plot(Outstate, Elite)
+```
+```{r}
+hist(Enroll)
+par(mfrow=c(2,2))
+hist(Top10perc)
+hist(Top25perc)
+```
+
+
+
+#chapter-2(10)
+
+```{r}
+library(MASS)
+?Boston
+```
+```{r}
+dim(Boston)
+```
+```{r}
+pairs(Boston)
+```
+```{r}
+cor(Boston$crim,Boston)
+```
+```{r}
+
+```
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

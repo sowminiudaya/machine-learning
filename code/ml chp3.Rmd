@@ -1,0 +1,46 @@
+---
+title: "chapter 3 ml"
+author: "Sowmini u"
+date: "02/10/2024"
+output: html_document
+---
+#chapter 3 (9)
+
+```{r}
+?Auto
+```
+```{r}
+pairs(Auto)
+```
+```{r}
+cor(Auto [1:8])
+```
+```{r}
+at=lm(mpg~.-name ,data = Auto)
+summary(at)
+```
+```{r}
+plot(at)
+```
+```{r}
+at1=lm(mpg~origin*weight ,data = Auto)
+summary(at1)
+```
+
+#chapter 3 (10)
+
+
+```{r}
+fit30=lm(Sales~Price+Urban+US, data = Carseats)
+```
+```{r}
+summary(fit30)
+```
+#interpretation
+#eqaution =sales=(-0.05price)(-0.02urban)(+1.2us yes)+1304
+#price and us yes reject the null hypothesis
+```{r}
+fit32=lm(Sales~Price+US, data = Carseats)
+summary(fit32)
+```
+

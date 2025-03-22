@@ -1,0 +1,101 @@
+---
+title: "chapter 4"
+author: "Sowmini u"
+date: "06/10/2024"
+output: html_document
+---
+
+
+```{r}
+?Weekly
+summary(Weekly)
+pairs(Weekly)
+```
+```{r}
+fit33=glm(Direction~Lag1+Lag2+Lag3+Lag4+Lag5+Volume, data = Weekly, family = binomial)
+summary(fit33)
+```
+```{r}
+probs=predict(fit33,type = "response")
+probs
+```
+```{r}
+pred=rep("Down",nrow(Weekly))
+pred
+```
+```{r}
+pred[probs>0.5]="Yes"
+```
+```{r}
+table(pred)
+```
+```{r}
+tr=Weekly$Year<2009
+```
+```{r}
+tr_data=Weekly[tr,]
+dim(tr_data)
+
+```
+
+```{r}
+te_data=Weekly[!tr,]
+dim(te_data)
+```
+
+```{r}
+fit34=glm(Direction ~Lag2, data = Weekly, family = binomial)
+summary(fit34)
+```
+```{r}
+probs=predict(fit34, te_data, type = "response")
+probs
+```
+```{r}
+pred=rep("Down", nrow(te_data))
+pred
+```
+```{r}
+pred[probs>0.5]="Up"
+```
+```{r}
+table(pred)
+```
+```{r}
+table(pred, te_data$Direction )
+```
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

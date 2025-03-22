@@ -1,0 +1,86 @@
+---
+title: "chapter 5"
+author: "Sowmini u"
+date: "03/10/2024"
+output: html_document
+---
+
+
+```{r}
+library(boot)
+```
+
+#chp 5(6)
+```{r}
+fit14=glm(default~income+balance , data = Default , family = binomial)
+summary(fit14)
+```
+```{r}
+boot.fn=function(data,index){fit14=glm(default~income+balance , data = data , family = binomial)
+return(coef(fit14))}
+```
+```{r}
+boot(boot.fn, data=Default, 100)
+```
+```{r}
+result=boot.fn
+```
+
+
+#chp 5(7)
+```{r}
+?Weekly
+fit35=glm(Direction~Lag1+Lag2, data = Weekly, family = binomial)
+```
+```{r}
+fit22=glm(Direction~Lag1+Lag2, data = Weekly[-1,], family = binomial)
+```
+
+```{r}
+probs=predict(fit22, Weekly[1,], type = "response")
+```
+
+```{r}
+pred=probs>0.5
+pred
+```
+```{r}
+actual=Weekly[1,"Direction"]=="UP"
+actual
+```
+
+```{r}
+error=rep(0,nrow(Weekly))
+for (i  in 1:nrow(Weekly)) {
+  fit22=glm(Direction~Lag1+Lag2, data = Weekly[-i,], family = binomial)
+  probs=predict(fit22, Weekly[i,], type = "response")
+  pred=probs>0.5
+  actual=Weekly[i,"Direction"]=="UP"
+  if(pred!=actual)
+    error[i]=1
+
+}
+```
+```{r}
+mean(error)
+```
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
